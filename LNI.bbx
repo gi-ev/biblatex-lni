@@ -82,7 +82,7 @@
   \usebibmacro{title}%
   \newunit%
   \usebibmacro{publisher+location}%
-  \setunit{\addspace}
+  \setunit{\addcomma\addspace}
   \printfield{year}%
   \newunit\newblock
   \usebibmacro{addendum+pubstate}%
@@ -107,11 +107,12 @@
   \printlist{language}%
   \newunit\newblock
   \usebibmacro{byauthor}%
-  \newunit\newblock
+  \setunit{\adddot\addspace}%
+  \newblock
   \printtext{\bibstring{in}}
   \usebibmacro{byeditor+others}%
-\setunit{\addcolon}%
-  \newunit\newblock
+  \setunit{\addcolon\addspace}%
+  \newblock
   \usebibmacro{maintitle+booktitle}%
   \newunit\newblock
   \usebibmacro{event+venue+date}%
