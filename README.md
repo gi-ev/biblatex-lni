@@ -15,7 +15,7 @@ If you include the template in an existing document, following lines are recomme
   backend=biber,
   style=LNI
 ]{biblatex}
-\addbibresource{paper.bib}
+\addbibresource{LNI-examples.bib}
 ```
 
 Use `\printbibliography` in your document to print the bibliography.
@@ -24,6 +24,10 @@ Use `biber` instead of `bibtex` to generate the bibliography entries.
 ## License
 
 Copyright (c) 2016 Lukas C. Bossert, Georg Duffner, Oliver Kopp
+
+This work has the LPPL maintenance status _maintained_.
+The current maintainer of this work is Oliver Kopp.
+
 
 This package may be distributed under the terms of the LaTeX Project
 Public License, as described in lppl.txt in the base LaTeX distribution.
