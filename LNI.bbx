@@ -9,6 +9,21 @@
 \AtBeginDocument{%
   \urlstyle{sf}%
   \typeout{* * * LNI * * *}
+
+  %Thin spaces between initials
+  %http://tex.stackexchange.com/a/11083/9075
+  \renewrobustcmd*{\bibinitdelim}{\,}
+
+  %Keep first and last name together in the bibliography
+  %http://tex.stackexchange.com/a/196192/9075
+  \renewcommand*\bibnamedelimc{\addnbspace}
+  \renewcommand*\bibnamedelimd{\addnbspace}
+
+  %Do not put "vd" in the label, but put it at "\citeauthor"
+  %Source: http://tex.stackexchange.com/a/30277/9075
+  \makeatletter
+  \AtBeginDocument{\toggletrue{blx@useprefix}}
+  \AtBeginBibliography{\togglefalse{blx@useprefix}}
 }
 
 \def\LNIversion{\LNI@version}
