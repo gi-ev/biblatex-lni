@@ -6,8 +6,11 @@
   backend=biber,
   style=LNI
 ]{biblatex}
+\usepackage{hyperref}
 \addbibresource{LNI-examples.bib}
 \begin{document}
+\chapter{Cites}
+Hyperlinked authors: \citeauthor{ABC01} \cite{ABC01}.
 \nocite{*}
 \printbibliography
 \end{document}
