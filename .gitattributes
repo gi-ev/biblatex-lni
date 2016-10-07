@@ -1,0 +1,2 @@
+# unix  line endings at unix files
+*.sh eol=lf
