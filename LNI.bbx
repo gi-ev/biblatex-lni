@@ -45,19 +45,8 @@
 \renewcommand{\multinamedelim}{\addsemicolon\space}
 \renewcommand{\finalnamedelim}{\multinamedelim}
 
-\newbibmacro*{byeditor+others}{%
-  \ifnameundef{editor}
-    {}
-    {(\printnames[byeditor]{editor}%
-     \clearname{editor}%
-     \setunit{\addcomma\addspace}%
-     \usebibmacro{byeditor+othersstrg})%
-     \newunit}%
-  \usebibmacro{byeditorx}%
-  \usebibmacro{bytranslator+others}}
-  
 
-\renewbibmacro*{publisher+location}{%
+\newbibmacro*{publisher+location}{%
     \printlist{publisher}%
  \newunit%
         \printlist{location}%
@@ -72,6 +61,36 @@
     {\usebibmacro{author+others}}
     {\usebibmacro{translator+others}}}
 
+\renewbibmacro*{event+venue+date}{%
+  \printfield{eventtitle}%
+  \newunit
+  \printfield{eventtitleaddon}%
+  \ifboolexpr{
+    test {\iffieldundef{venue}}
+    and
+    test {\iffieldundef{eventyear}}
+  }
+    {}
+    {\setunit*{\addspace}%
+       \printfield{venue}%
+       \setunit*{\space}%
+       \printeventdate}%
+  \newunit}
+
+
+\DeclareLabelalphaTemplate{
+  \labelelement{
+    \field[final]{shorthand}
+    \field{label}
+    \field[strwidth=2,strside=left,noalphaothers=true,ifnames=1]{labelname}
+    \field[strwidth=1,strside=left]{labelname}
+  }
+  \labelelement{
+    \field[strwidth=2,strside=right]{year}
+  }
+}
+
+
 \DeclareBibliographyDriver{book}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
@@ -80,9 +99,9 @@
     {\usebibmacro{author}}%
   \setunit{\nametitledelim}\newblock%
   \usebibmacro{title}%
-  \newunit%
+  \printunit{\addperiod\space}%
   \usebibmacro{publisher+location}%
-  \setunit{\addspace}
+  \newunit%
   \printfield{year}%
   \newunit\newblock
   \usebibmacro{addendum+pubstate}%
@@ -93,36 +112,34 @@
     {\usebibmacro{related:init}%
      \usebibmacro{related}}
     {}%
-  \nopunct%
   \usebibmacro{finentry}%
 }
-  
+
 \DeclareBibliographyDriver{inproceedings}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author/translator+others}%
   \setunit{\nametitledelim}\newblock
   \usebibmacro{title}%
-  \newunit
-  \printlist{language}%
-  \newunit\newblock
-  \usebibmacro{byauthor}%
-  \newunit\newblock
+  \printunit{\addperiod\space}
+  % \printlist{language}%
+  % \newunit\newblock
+  % \usebibmacro{byauthor}%
+  % \newunit\newblock
   \printtext{\bibstring{in}}
-  \usebibmacro{byeditor+others}%
-\setunit{\addcolon}%
-  \newunit\newblock
+  \mkbibparens{\usebibmacro{editor+others}}%
+  \setunit{\nametitledelim}\newblock
   \usebibmacro{maintitle+booktitle}%
-  \newunit\newblock
+  \newunit
   \usebibmacro{event+venue+date}%
-  \newunit\newblock
+  \printunit{\addperiod\space}\newblock
   \iffieldundef{maintitle}
     {\printfield{volume}%
      \printfield{part}}
     {}%
   \newunit
   \printfield{volumes}%
-  \newunit\newblock
+  \setunit{\addperiod\space}\newblock
   \usebibmacro{series+number}%
   \newunit\newblock
   \printfield{note}%
@@ -132,8 +149,7 @@
   \usebibmacro{publisher+location}%
   \newunit\newblock
   \usebibmacro{chapter+pages}%
-  \newunit
-  \addcomma\addspace
+  \newunit%
   \usebibmacro{date}%
   \newunit\newblock
   \iftoggle{bbx:isbn}
@@ -151,25 +167,23 @@
      \usebibmacro{related}}
     {}%
   \usebibmacro{finentry}}
-  
+
 \DeclareBibliographyDriver{inbook}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author/translator+others}%
   \setunit{\nametitledelim}\newblock
   \usebibmacro{title}%
-  \newunit
-  \printlist{language}%
-  \newunit\newblock
-  \usebibmacro{byauthor}%
-  \newunit\newblock
+  \setunit{\addperiod\space}
+  % \printlist{language}%
+  % \newunit\newblock
+  % \usebibmacro{byauthor}%
+  % \newunit\newblock
   \printtext{\bibstring{in}}
-  \usebibmacro{byeditor+others}%
-\setunit{\addcolon}%
-  \newunit\newblock
+  \mkbibparens{\usebibmacro{editor+others}}%
+  \setunit{\nametitledelim}\newblock
   \usebibmacro{maintitle+booktitle}%
-  \newunit\newblock
-  \newunit\newblock
+  \setunit{\addperiod\space}\newblock
   \printfield{edition}%
   \newunit
   \iffieldundef{maintitle}
@@ -186,6 +200,8 @@
   \usebibmacro{publisher+location}%
   \newunit\newblock
   \usebibmacro{chapter+pages}%
+  \newunit\newblock
+  \usebibmacro{date}%
   \newunit\newblock
   \iftoggle{bbx:isbn}
     {\printfield{isbn}}
@@ -209,7 +225,7 @@
   \usebibmacro{author/translator+others}%
   \setunit{\nametitledelim}\newblock
   \usebibmacro{title}%
-  \newunit
+  \printunit{\addperiod\space}\newblock
   \printlist{language}%
   \newunit\newblock
   \usebibmacro{byauthor}%
@@ -218,7 +234,6 @@
   \newunit\newblock
   \printfield{version}%
   \newunit\newblock
-  \usebibmacro{in:}%
   \usebibmacro{journal}%
   \setunit*{\addspace}%
   \iffieldundef{series}
@@ -227,7 +242,7 @@
      \printfield{series}%
      \setunit{\addspace}}%
   \printfield{volume}%
-  \printtext{/}
+  \printtext{/}%
   \printfield{number}%
   \setunit{\addspace}%
   \usebibmacro{issue}%
