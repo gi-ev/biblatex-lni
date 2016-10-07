@@ -1,13 +1,12 @@
 \def\LNI@date{2016-10-06}
 \def\LNI@version{0.1}
-\def\LNI@bbxid{\LNI@date\space v\LNI@version\space biblatex-LNI bibliography style (LCB)}
-\def\LNI@cbxid{\LNI@date\space v\LNI@version\space biblatex-LNI  citation style (LCB)}
-\def\LNI@lbxid{\LNI@date\space v\LNI@version\space biblatex-LNI localization (LCB)}
+\def\LNI@bbxid{\LNI@date\space v\LNI@version\space biblatex-LNI bibliography style (LCB/GD)}
+\def\LNI@cbxid{\LNI@date\space v\LNI@version\space biblatex-LNI  citation style (LCB/GD)}
+\def\LNI@lbxid{\LNI@date\space v\LNI@version\space biblatex-LNI localization (LCB/GD)}
 
 \ProvidesFile{LNI.bbx}[\LNI@bbxid]
 \RequireBibliographyStyle{alphabetic}
 \AtBeginDocument{%
-%  \RequirePackage{csquotes}
   \urlstyle{sf}%
   \typeout{* * * LNI * * *}
 }
@@ -17,8 +16,7 @@
 \ExecuteBibliographyOptions{%
   sortcites     = true,
   giveninits    = true,
-  useprefix     = false, %"von, van, etc." will be printed, too. See below.
-%  uniquename=init,
+  useprefix     = false,
   maxbibnames   = 99,
   maxcitenames  = 3,
   eprint        = true,
@@ -44,7 +42,8 @@
 \renewcommand*{\newunitpunct}{\addcomma\space}
 \renewcommand{\multinamedelim}{\addsemicolon\space}
 \renewcommand{\finalnamedelim}{\multinamedelim}
-
+\newcommand*{\volnumdelim}{\addslash}
+\newcommand*{\aftertitledelim}{\addperiod\addspace}
 
 \newbibmacro*{publisher+location}{%
     \printlist{publisher}%
@@ -77,6 +76,12 @@
        \printeventdate}%
   \newunit}
 
+\newbibmacro*{in+editor+maintitle/booktitle}{%
+  \printtext{\bibstring{in}}%
+  \setunit{\addspace}%
+  \printtext[parens]{\usebibmacro{editor+others}}%
+  \setunit{\nametitledelim}\newblock
+  \usebibmacro{maintitle+booktitle}}
 
 \DeclareLabelalphaTemplate{
   \labelelement{
@@ -99,7 +104,7 @@
     {\usebibmacro{author}}%
   \setunit{\nametitledelim}\newblock%
   \usebibmacro{title}%
-  \printunit{\addperiod\space}%
+  \setunit{\aftertitledelim}%
   \usebibmacro{publisher+location}%
   \newunit%
   \printfield{year}%
@@ -121,18 +126,11 @@
   \usebibmacro{author/translator+others}%
   \setunit{\nametitledelim}\newblock
   \usebibmacro{title}%
-  \printunit{\addperiod\space}
-  % \printlist{language}%
-  % \newunit\newblock
-  % \usebibmacro{byauthor}%
-  % \newunit\newblock
-  \printtext{\bibstring{in}}
-  \mkbibparens{\usebibmacro{editor+others}}%
-  \setunit{\nametitledelim}\newblock
-  \usebibmacro{maintitle+booktitle}%
-  \newunit
+  \setunit{\aftertitledelim}%
+ \usebibmacro{in+editor+maintitle/booktitle}%
+ \newunit%
   \usebibmacro{event+venue+date}%
-  \printunit{\addperiod\space}\newblock
+    \setunit{\aftertitledelim}\newblock
   \iffieldundef{maintitle}
     {\printfield{volume}%
      \printfield{part}}
@@ -174,16 +172,9 @@
   \usebibmacro{author/translator+others}%
   \setunit{\nametitledelim}\newblock
   \usebibmacro{title}%
-  \setunit{\addperiod\space}
-  % \printlist{language}%
-  % \newunit\newblock
-  % \usebibmacro{byauthor}%
-  % \newunit\newblock
-  \printtext{\bibstring{in}}
-  \mkbibparens{\usebibmacro{editor+others}}%
-  \setunit{\nametitledelim}\newblock
-  \usebibmacro{maintitle+booktitle}%
-  \setunit{\addperiod\space}\newblock
+  \setunit{\aftertitledelim}%
+  \usebibmacro{in+editor+maintitle/booktitle}%
+    \setunit{\aftertitledelim}\newblock
   \printfield{edition}%
   \newunit
   \iffieldundef{maintitle}
@@ -225,7 +216,7 @@
   \usebibmacro{author/translator+others}%
   \setunit{\nametitledelim}\newblock
   \usebibmacro{title}%
-  \printunit{\addperiod\space}\newblock
+  \setunit{\aftertitledelim}%\newblock
   \printlist{language}%
   \newunit\newblock
   \usebibmacro{byauthor}%
@@ -242,16 +233,15 @@
      \printfield{series}%
      \setunit{\addspace}}%
   \printfield{volume}%
-  \printtext{/}%
+  \printtext{\volnumdelim}%
   \printfield{number}%
   \setunit{\addspace}%
   \usebibmacro{issue}%
   \newunit
   \usebibmacro{byeditor+others}%
   \newunit
-  \newunit
   \usebibmacro{note+pages}%
-  \addcomma\addspace
+\newunit
   \usebibmacro{date}%
   \newunit\newblock
   \iftoggle{bbx:isbn}
