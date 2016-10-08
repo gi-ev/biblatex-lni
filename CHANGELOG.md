@@ -7,7 +7,7 @@ The markdown syntax is inspired by the conventions proposed by [keepachangelog.c
 ## [Unreleased]
 * German: "et al." is printed instead of "u.a."
 
-## v0.1
+## v0.1 - 2016-10-07
 
 Initial release.
 
