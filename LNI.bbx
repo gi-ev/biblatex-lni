@@ -29,13 +29,12 @@
   %http://tex.stackexchange.com/a/196192/9075
   \renewcommand*\bibnamedelimc{\addnbspace}
   \renewcommand*\bibnamedelimd{\addnbspace}
-
-  %Do not put "vd" in the label, but put it at "\citeauthor"
-  %Source: http://tex.stackexchange.com/a/30277/9075
-  \makeatletter
-  \AtBeginDocument{\toggletrue{blx@useprefix}}
-  \AtBeginBibliography{\togglefalse{blx@useprefix}}
 }
+
+%Do not put "vd" in the label, but put it at "\citeauthor"
+%Source: http://tex.stackexchange.com/a/30277/9075
+\AtBeginDocument{\toggletrue{blx@useprefix}}
+\AtBeginBibliography{\togglefalse{blx@useprefix}}
 
 \def\LNIversion{\LNI@version}
 \def\LNIdate{\LNI@date}
