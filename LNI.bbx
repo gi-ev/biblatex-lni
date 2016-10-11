@@ -1,7 +1,7 @@
 % LNI --%
 %
 % Copyright (c) 2016 Lukas C. Bossert, Georg Duffner, Oliver Kopp
-%  
+%
 % This work may be distributed and/or modified under the
 % conditions of the LaTeX Project Public License, either version 1.3
 % of this license or (at your option) any later version.
@@ -31,10 +31,6 @@
   \renewcommand*\bibnamedelimd{\addnbspace}
 }
 
-%Do not put "vd" in the label, but put it at "\citeauthor"
-%Source: http://tex.stackexchange.com/a/30277/9075
-\AtBeginDocument{\toggletrue{blx@useprefix}}
-\AtBeginBibliography{\togglefalse{blx@useprefix}}
 
 \def\LNIversion{\LNI@version}
 \def\LNIdate{\LNI@date}
@@ -42,7 +38,7 @@
   bibencoding   = utf8,
   sortcites     = true,
   giveninits    = true,
-  useprefix     = false,
+  useprefix     = true,
   maxbibnames   = 99,
   maxcitenames  = 2,
   eprint        = true,
@@ -71,6 +67,9 @@
 \renewcommand{\finalnamedelim}{\multinamedelim}
 \newcommand*{\volnumdelim}{\addslash}
 \newcommand*{\aftertitledelim}{\addperiod\addspace}
+
+% Don't uppercase name prefixes
+\renewbibmacro*{begentry}{\midsentence}
 
 \newbibmacro*{publisher+location}{%
     \printlist{publisher}%
@@ -122,6 +121,12 @@
   }
 }
 
+% Don't use prefixes in labels
+\DeclareLabelalphaNameTemplate{
+  % \namepart[use=false]{prefix} % this doesn't work!?
+  \namepart[pre=true,strwidth=0]{prefix}
+  \namepart{family}
+}
 
 \DeclareBibliographyDriver{book}{%
   \usebibmacro{bibindex}%
