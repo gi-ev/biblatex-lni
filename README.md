@@ -1,6 +1,7 @@
 # biblatex-lni
 
 This is a [biblatex] style for [LNI], the Lecture Notes in Informatics of the [Gesellschaft für Informatik e.V.].
+It requires at least [biblatex 3.5] and [biber] 3.6.
 
 ## Usage
 
@@ -38,6 +39,8 @@ This package may be distributed under the terms of the LaTeX Project
 Public License, as described in lppl.txt in the base LaTeX distribution.
 Either version 1.3 or, at your option, any later version.
 
-  [biblatex]: https://www.ctan.org/pkg/biblatex
+  [biber]: https://github.com/plk/biber#overview
+  [biblatex]: https://github.com/plk/biblatex#overview
+  [biblatex 3.5]: https://github.com/plk/biblatex/blob/dev/doc/latex/biblatex/CHANGES.org#release-notes-for-version-35
   [Gesellschaft für Informatik e.V.]: https://www.gi.de
   [LNI]: https://www.gi.de/service/publikationen/lni/autorenrichtlinien.html
