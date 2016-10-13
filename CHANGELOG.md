@@ -5,7 +5,7 @@ This project **does not** adhere to [Semantic Versioning](http://semver.org/).
 The markdown syntax is inspired by the conventions proposed by [keepachangelog.com](http://keepachangelog.com/).
 
 ## [Unreleased]
-* Labels do not include family parts any more
+* Labels do not include prefixes any more
 * `\citeauthor` prints one author if one author, two authors if two authors, and the first author + "et al." in the case of three or more
 * German: "et al." is printed instead of "u.a."
 
