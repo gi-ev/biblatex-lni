@@ -21,6 +21,11 @@ If you include the template in an existing document, following lines are recomme
 Use `\printbibliography` in your document to print the bibliography.
 Use `biber` instead of `bibtex` to generate the bibliography entries.
 
+## Source and Feedback
+
+The source of this package is maintained at <https://github.com/latextemplates/biblatex-lni>.
+This site also allows for filing issues in case something strange is encontered.
+
 ## License
 
 Copyright (c) 2016 Lukas C. Bossert, Georg Duffner, Oliver Kopp
