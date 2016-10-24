@@ -137,7 +137,7 @@
     {\usebibmacro{author}}%
   \setunit{\nametitledelim}\newblock%
   \usebibmacro{title}%
-  \setunit{\aftertitledelim}%
+  \printunit{\aftertitledelim}
   \usebibmacro{publisher+location}%
   \printfield{year}%
   \newunit\newblock
@@ -152,15 +152,61 @@
   \usebibmacro{finentry}%
 }
 
+\DeclareBibliographyDriver{collection}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{editor+others}%
+  \setunit{\printdelim{nametitledelim}}\newblock
+  \usebibmacro{maintitle+title}%
+  \printunit{\aftertitledelim}
+  \printlist{language}%
+  \newunit\newblock
+  \usebibmacro{byeditor+others}%
+  \newunit\newblock
+  \printfield{edition}%
+  \newunit
+  \iffieldundef{maintitle}
+    {\printfield{volume}%
+     \printfield{part}}
+    {}%
+  \newunit
+  \printfield{volumes}%
+  \newunit\newblock
+  \usebibmacro{series+number}%
+  \newunit\newblock
+  \printfield{note}%
+  \newunit\newblock
+  \usebibmacro{publisher+location+date}%
+  \newunit\newblock
+  \usebibmacro{chapter+pages}%
+  \newunit
+  \printfield{pagetotal}%
+  \newunit\newblock
+  \iftoggle{bbx:isbn}
+    {\printfield{isbn}}
+    {}%
+  \newunit\newblock
+  \usebibmacro{doi+eprint+url}%
+  \newunit\newblock
+  \usebibmacro{addendum+pubstate}%
+  \setunit{\bibpagerefpunct}\newblock
+  \usebibmacro{pageref}%
+  \newunit\newblock
+  \iftoggle{bbx:related}
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}
+    {}%
+  \usebibmacro{finentry}}
+
 \DeclareBibliographyDriver{incollection}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author/translator+others}%
   \setunit{\printdelim{nametitledelim}}\newblock
   \usebibmacro{title}%
-  \setunit{\aftertitledelim}%
+  \printunit{\aftertitledelim}
   \usebibmacro{in+editor+maintitle/booktitle}%
-  \setunit{\aftertitledelim}\newblock
+  \printunit{\aftertitledelim}
   \printfield{edition}%
   \newunit
   \iffieldundef{maintitle}
@@ -200,11 +246,13 @@
   \usebibmacro{author/translator+others}%
   \setunit{\nametitledelim}\newblock
   \usebibmacro{title}%
-  \setunit{\aftertitledelim}%
- \usebibmacro{in+editor+maintitle/booktitle}%
- \newunit%
+  \printunit{\aftertitledelim}
+  \usebibmacro{in+editor+maintitle/booktitle}%
+  \iffieldundef{eventtitle}
+    {}
+    {\printunit{\aftertitledelim}}
   \usebibmacro{event+venue+date}%
-    \setunit{\aftertitledelim}\newblock
+  \printunit{\aftertitledelim}\newblock
   \iffieldundef{maintitle}
     {\printfield{volume}%
      \printfield{part}}
@@ -246,9 +294,9 @@
   \usebibmacro{author/translator+others}%
   \setunit{\nametitledelim}\newblock
   \usebibmacro{title}%
-  \setunit{\aftertitledelim}%
+  \printunit{\aftertitledelim}%
   \usebibmacro{in+editor+maintitle/booktitle}%
-    \setunit{\aftertitledelim}\newblock
+  \printunit{\aftertitledelim}\newblock
   \printfield{edition}%
   \newunit
   \iffieldundef{maintitle}
@@ -290,7 +338,7 @@
   \usebibmacro{author/translator+others}%
   \setunit{\nametitledelim}\newblock
   \usebibmacro{title}%
-  \setunit{\aftertitledelim}%\newblock
+  \printunit{\aftertitledelim}
   \printlist{language}%
   \newunit\newblock
   \usebibmacro{byauthor}%
