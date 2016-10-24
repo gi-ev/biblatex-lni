@@ -1,7 +1,7 @@
 # biblatex-lni
 
 This is a [biblatex] style for [LNI], the Lecture Notes in Informatics of the [Gesellschaft für Informatik e.V.].
-It requires at least [biblatex 3.5] and [biber] 3.6.
+It requires at least [biblatex 3.5] and [biber] 2.6.
 
 ## Usage
 
