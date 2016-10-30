@@ -5,8 +5,9 @@ This project **does not** adhere to [Semantic Versioning](http://semver.org/).
 The markdown syntax is inspired by the conventions proposed by [keepachangelog.com](http://keepachangelog.com/).
 
 ## [Unreleased]
-* Support for empty editor in `InProceedings` and `InCollection`.
-* Explicit support for `InCollection`.
+* Support for empty editor in `InProceedings` and `InCollection`
+* Explicit support for `InCollection`
+* Improved examples in `LNI-examples.bib`
 
 ## [v0.2] - 2016-10-13
 * Labels do not include prefixes any more
