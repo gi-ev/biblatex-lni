@@ -220,9 +220,11 @@
   \newunit\newblock
   \printfield{note}%
   \newunit\newblock
-  \usebibmacro{publisher+location+date}%
+  \usebibmacro{publisher+location}%
   \newunit\newblock
   \usebibmacro{chapter+pages}%
+  \newunit%
+  \usebibmacro{date}
   \newunit\newblock
   \iftoggle{bbx:isbn}
     {\printfield{isbn}}
