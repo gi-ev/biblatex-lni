@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 This project **does not** adhere to [Semantic Versioning](http://semver.org/).
 The markdown syntax is inspired by the conventions proposed by [keepachangelog.com](http://keepachangelog.com/).
 
+## [Unreleased]
+
 ## [v0.4] - 2017-01-23
 * The year is now printed after the pages in InCollection.
 * url style is not changed to sans serif any more.
