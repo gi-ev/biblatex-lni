@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 This project **does not** adhere to [Semantic Versioning](http://semver.org/).
 The markdown syntax is inspired by the conventions proposed by [keepachangelog.com](http://keepachangelog.com/).
 
-## [Unreleased]
+## [v0.4] - 2017-01-23
 * The year is now printed after the pages in InCollection.
 * url style is not changed to sans serif any more.
 
@@ -24,4 +24,5 @@ Initial release.
 
 [v0.2]: https://github.com/latextemplates/biblatex-lni/compare/v0.1...v0.2
 [v0.3]: https://github.com/latextemplates/biblatex-lni/compare/v0.2...v0.3
-[Unreleased]: https://github.com/latextemplates/biblatex-lni/compare/v0.3...HEAD
+[v0.4]: https://github.com/latextemplates/biblatex-lni/compare/v0.3...v0.4
+[Unreleased]: https://github.com/latextemplates/biblatex-lni/compare/v0.4...HEAD
