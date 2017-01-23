@@ -5,6 +5,8 @@ This project **does not** adhere to [Semantic Versioning](http://semver.org/).
 The markdown syntax is inspired by the conventions proposed by [keepachangelog.com](http://keepachangelog.com/).
 
 ## [Unreleased]
+* The year is now printed after the pages in InCollection.
+* url style is not changed to sans serif any more.
 
 ## [v0.3] - 2016-10-30
 * Support for empty editor in `InProceedings` and `InCollection`
