@@ -24,7 +24,7 @@ Use `biber` instead of `bibtex` to generate the bibliography entries.
 
 ## Source and Feedback
 
-The source of this package is maintained at <https://github.com/latextemplates/biblatex-lni>.
+The source of this package is maintained at <https://github.com/gi-ev/biblatex-lni>.
 This site also allows for filing issues in case something strange is encontered.
 
 ## License
