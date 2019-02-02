@@ -6,4 +6,8 @@ jobs:
      steps:
        - checkout
        - run: latexmk LNI-test-en
+       - store_artifacts:
+          path: LNI-test-en.pdf
        - run: latexmk LNI-test-de
+       - store_artifacts:
+          path: LNI-test-de.pdf
