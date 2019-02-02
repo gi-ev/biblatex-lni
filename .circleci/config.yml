@@ -1,0 +1,9 @@
+version: 2
+jobs:
+   build:
+     docker:
+       - image: danteev/texlive
+     steps:
+       - checkout
+       - run: latexmk LNI-test-en
+       - run: latexmk LNI-test-de
