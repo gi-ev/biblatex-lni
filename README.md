@@ -1,4 +1,4 @@
-# biblatex-lni
+# biblatex-lni [![Build Status](https://circleci.com/gh/gi-ev/biblatex-lni/tree/master.svg?style=shield)](https://circleci.com/gh/gi-ev/biblatex-lni/) [![CTAN](https://img.shields.io/badge/CTAN-biblatex--lni-blue.svg?style=flat-square)](https://ctan.org/pkg/biblatex-lni)
 
 This is a [biblatex] style for [LNI], the Lecture Notes in Informatics of the [Gesellschaft für Informatik e.V.].
 It requires at least [biblatex 3.5] and [biber] 2.6.
