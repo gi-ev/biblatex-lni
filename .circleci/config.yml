@@ -11,3 +11,8 @@ jobs:
        - run: latexmk LNI-test-de
        - store_artifacts:
           path: LNI-test-de.pdf
+       - run: ./release.sh
+       - store_artifacts:
+          path: biblatex-lni.zip
+       - run: mv biblatex-lni.zip /tmp && cd /tmp && unzip biblatex-lni.zip
+       - run: pkgcheck -d /tmp/biblatex-lni
