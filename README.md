@@ -9,7 +9,7 @@ This style has no specific requirements, thus you can just pass `style=LNI` as p
 
 If you include the template in an existing document, following lines are recommended
 
-```
+```latex
 \usepackage[english]{babel}
 \usepackage{csquotes}
 \usepackage[
