@@ -136,13 +136,20 @@
     {\usebibmacro{author}}%
   \setunit{\nametitledelim}\newblock%
   \usebibmacro{title}%
-  \printunit{\aftertitledelim}
+  \printunit{\aftertitledelim}%
+  \newunit\newblock
+  \printfield{note}%
+  \newunit\newblock
   \usebibmacro{publisher+location}%
   \printfield{year}%
   \newunit\newblock
   \usebibmacro{addendum+pubstate}%
   \setunit{\bibpagerefpunct}\newblock
   \usebibmacro{pageref}%
+  \newunit\newblock
+  \iftoggle{bbx:isbn}
+    {\printfield{isbn}}
+    {}%
   \newunit\newblock
   \iftoggle{bbx:related}
     {\usebibmacro{related:init}%

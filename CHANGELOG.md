@@ -6,6 +6,8 @@ The markdown syntax is inspired by the conventions proposed by [keepachangelog.c
 
 ## [Unreleased]
 
+* Add support for ISBN and note to `@book`. Fixes [LNI/#74](https://github.com/gi-ev/LNI/issues/74).
+
 ## [v0.4] – 2017-01-23
 
 * The year is now printed after the pages in InCollection.
