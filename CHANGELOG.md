@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 This project **does not** adhere to [Semantic Versioning](http://semver.org/).
 The markdown syntax is inspired by the conventions proposed by [keepachangelog.com](http://keepachangelog.com/).
 
-## [Unreleased]
+## [v0.5] – 2019-02-03
 
 * Add support for ISBN and note to `@book`. Fixes [LNI/#74](https://github.com/gi-ev/LNI/issues/74).
 
@@ -32,4 +32,5 @@ Initial release.
 [v0.2]: https://github.com/latextemplates/biblatex-lni/compare/v0.1...v0.2
 [v0.3]: https://github.com/latextemplates/biblatex-lni/compare/v0.2...v0.3
 [v0.4]: https://github.com/latextemplates/biblatex-lni/compare/v0.3...v0.4
-[Unreleased]: https://github.com/latextemplates/biblatex-lni/compare/v0.4...HEAD
+[v0.5]: https://github.com/latextemplates/biblatex-lni/compare/v0.4...v0.5
+[Unreleased]: https://github.com/latextemplates/biblatex-lni/compare/v0.5...HEAD
