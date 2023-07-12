@@ -1,0 +1,76 @@
+name: check
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  schedule:
+    - cron: '1 2 5 * *'
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: reitzig/texlive-base:2023.1
+      options: --user root
+      env:
+        SRC_DIR: /__w/biblatex-lni/biblatex-lni
+
+    steps:
+      - name: Install dependencies
+        run: apk add git zip
+
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Add x86_64-linuxmusl to PATH
+        run: echo "/usr/local/texlive/2023/bin/x86_64-linuxmusl" >> $GITHUB_PATH
+
+      - name: Build LNI-test-en
+        run: |
+          /bin/entrypoint work pdflatex LNI-test-en
+          /bin/entrypoint work biber LNI-test-en
+          /bin/entrypoint work pdflatex LNI-test-en
+          /bin/entrypoint work pdflatex LNI-test-en
+          mkdir /tmp/result
+          cp /work/out/*.pdf /tmp/result
+
+      - name: Build LNI-test-de
+        run: |
+          /bin/entrypoint work pdflatex LNI-test-de
+          /bin/entrypoint work biber LNI-test-de
+          /bin/entrypoint work pdflatex LNI-test-de
+          /bin/entrypoint work pdflatex LNI-test-de
+          cp /work/out/*.pdf /tmp/result
+
+      - name: Upload PDFs
+        uses: actions/upload-artifact@v3
+        with:
+          name: PDFs
+          path: '/tmp/result/*.pdf'
+
+      - name: Prepare for CTAN
+        run: |
+          git config --global --add safe.directory /__w/biblatex-lni/biblatex-lni
+          ./release.sh
+
+      - name: Upload CTAN build
+        uses: actions/upload-artifact@v3
+        with:
+          name: CTAN
+          path: 'biblatex-lni.zip'
+
+      - name: pkgcheck
+        run: |
+           set -e
+           wget https://gitlab.com/Lotz/pkgcheck/raw/master/bin/pkgcheck -q --output-document=/usr/local/bin/pkgcheck && chmod a+x /usr/local/bin/pkgcheck
+           mv biblatex-lni.zip /tmp
+           cd /tmp
+           unzip biblatex-lni.zip
+           pkgcheck -d /tmp/biblatex-lni
