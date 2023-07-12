@@ -6,6 +6,7 @@ The markdown syntax is inspired by the conventions proposed by [keepachangelog.c
 ## [Unreleased]
 
 * The font size of the bibliography is now `\small`. [#11](https://github.com/gi-ev/biblatex-lni/pull/11)
+* Heading of bibliography in German is "Literaturverzeichnis"
 
 ## [v0.5] – 2019-02-03
 
