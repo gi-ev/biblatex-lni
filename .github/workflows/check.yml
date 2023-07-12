@@ -56,7 +56,9 @@ jobs:
           path: '/tmp/result/*.pdf'
 
       - name: Prepare for CTAN
-        run: ./release.sh
+        run: |
+          git config --global --add safe.directory /__w/biblatex-lni/biblatex-lni
+          ./release.sh
 
       - name: Upload CTAN build
         uses: actions/upload-artifact@v3
