@@ -23,6 +23,9 @@ jobs:
         SRC_DIR: /__w/biblatex-lni/biblatex-lni
 
     steps:
+      - name: Install dependencies
+        run: apk add git zip
+
       - name: Check out code
         uses: actions/checkout@v3
 
@@ -51,9 +54,6 @@ jobs:
         with:
           name: PDFs
           path: '/tmp/result/*.pdf'
-
-      - name: Install dependencies for release.sh
-        run: apk add git zip
 
       - name: Prepare for CTAN
         run: ./release.sh
