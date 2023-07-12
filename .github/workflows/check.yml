@@ -20,7 +20,7 @@ jobs:
       image: reitzig/texlive-base:2023.1
       options: --user root
       env:
-        SRC_DIR: /__w/LNI/LNI
+        SRC_DIR: /__w/biblatex-lni/biblatex-lni
 
     steps:
       - name: Check out code
