@@ -67,7 +67,8 @@ jobs:
       - name: pkgcheck
         run: |
            set -e
+           wget https://gitlab.com/Lotz/pkgcheck/raw/master/bin/pkgcheck -q --output-document=/usr/local/bin/pkgcheck && chmod a+x /usr/local/bin/pkgcheck
            mv biblatex-lni-zip /tmp 
            cd /tmp
            unzip biblatex-lni.zip
-           /usr/local/texlive/2023/bin/x86_64-linuxmusl/pkgcheck -d /tmp/biblatex-lni
+           pkgcheck -d /tmp/biblatex-lni
