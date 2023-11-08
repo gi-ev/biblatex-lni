@@ -8,6 +8,7 @@ The markdown syntax is inspired by the conventions proposed by [keepachangelog.c
 ### Changed
 
 * Added `doi` to the output. [#17](https://github.com/gi-ev/biblatex-lni/pull/17)
+* Volume and number are now output using parentheses. Example: 44(3) (instead of 44/3). [#20](https://github.com/gi-ev/biblatex-lni/pull/20)
 
 ### Fixed
 
