@@ -1,7 +1,7 @@
 # Changelog
 
 All notable changes to this project will be documented in this file.
-The markdown syntax is inspired by the conventions proposed by [keepachangelog.com](http://keepachangelog.com/).
+The markdown syntax is inspired by the conventions proposed by [keepachangelog.com](https://keepachangelog.com/).
 
 ## [Unreleased]
 
@@ -30,10 +30,11 @@ The markdown syntax is inspired by the conventions proposed by [keepachangelog.c
 * `\citeauthor` prints one author if one author, two authors if two authors, and the first author + "et al." in the case of three or more
 * German: "et al." is printed instead of "u.a."
 
-## v0.1 - 2016-10-07
+## [v0.1] - 2016-10-07
 
 Initial release.
 
+[v0.1]: https://github.com/gi-ev/biblatex-lni/tree/v0.1
 [v0.2]: https://github.com/latextemplates/biblatex-lni/compare/v0.1...v0.2
 [v0.3]: https://github.com/latextemplates/biblatex-lni/compare/v0.2...v0.3
 [v0.4]: https://github.com/latextemplates/biblatex-lni/compare/v0.3...v0.4
