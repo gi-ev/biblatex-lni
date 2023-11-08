@@ -9,28 +9,28 @@ The markdown syntax is inspired by the conventions proposed by [keepachangelog.c
 * Heading of bibliography in German is "Literaturverzeichnis". [#12](https://github.com/gi-ev/biblatex-lni/pull/12)
 * Date is showing the year only. [#13](https://github.com/gi-ev/biblatex-lni/pull/11)
 
-## [v0.5] – 2019-02-03
+## [v0.5] - 2019-02-03
 
 * Add support for ISBN and note to `@book`. Fixes [LNI/#74](https://github.com/gi-ev/LNI/issues/74).
 
-## [v0.4] – 2017-01-23
+## [v0.4] - 2017-01-23
 
 * The year is now printed after the pages in InCollection.
 * url style is not changed to sans serif any more.
 
-## [v0.3] – 2016-10-30
+## [v0.3] - 2016-10-30
 
 * Support for empty editor in `InProceedings` and `InCollection`
 * Explicit support for `InCollection`
 * Improved examples in `LNI-examples.bib`
 
-## [v0.2] – 2016-10-13
+## [v0.2] - 2016-10-13
 
 * Labels do not include prefixes any more
 * `\citeauthor` prints one author if one author, two authors if two authors, and the first author + "et al." in the case of three or more
 * German: "et al." is printed instead of "u.a."
 
-## v0.1 – 2016-10-07
+## v0.1 - 2016-10-07
 
 Initial release.
 
