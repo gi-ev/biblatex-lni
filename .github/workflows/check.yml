@@ -25,7 +25,7 @@ jobs:
       - name: Lint CHANGELOG.md
         uses: jbangdev/jbang-action@v0.110.1
         with:
-          script: com.github.nbbrd.heylogs:heylogs-cli:v0.7.1:bin
+          script: com.github.nbbrd.heylogs:heylogs-cli:0.7.1:bin
           scriptargs: "check CHANGELOG.md"
   build:
     runs-on: ubuntu-latest
