@@ -64,6 +64,14 @@ jobs:
           /bin/entrypoint work pdflatex LNI-test-de
           cp /work/out/*.pdf /tmp/result
 
+      - name: Build mwe
+        run: |
+          /bin/entrypoint work pdflatex mwe
+          /bin/entrypoint work biber mwe
+          /bin/entrypoint work pdflatex mwe
+          /bin/entrypoint work pdflatex mwe
+          cp /work/out/*.pdf /tmp/result
+
       - name: Upload PDFs
         uses: actions/upload-artifact@v3
         with:
