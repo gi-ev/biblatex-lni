@@ -1,6 +1,6 @@
 # biblatex-lni
 
-This is a [biblatex] style for [LNI], the Lecture Notes in Informatics of the [Gesellschaft für Informatik e.V.].
+This is a [biblatex] style for the [Lecture Notes in Informatics (LNI)](https://gi.de/service/publikationen/lni) of the [Gesellschaft für Informatik e.V.]
 It requires at least [biblatex 3.5] and [biber] 2.6.
 
 > This style is available on CTAN at <https://ctan.org/pkg/biblatex-lni> and should directly be usable in your LaTeX distribution.
@@ -45,4 +45,3 @@ Either version 1.3 or, at your option, any later version.
 [biblatex]: https://github.com/plk/biblatex#overview
 [biblatex 3.5]: https://github.com/plk/biblatex/blob/dev/doc/latex/biblatex/CHANGES.org#release-notes-for-version-35
 [Gesellschaft für Informatik e.V.]: https://gi.de
-[LNI]: https://gi.de/service/publikationen/lni
