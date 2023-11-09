@@ -10,7 +10,7 @@ It requires at least [biblatex 3.5] and [biber] 2.6.
 Typically, this class is used in the context of LNI publications, which are typeset using the [lni package](https://ctan.org/pkg/lni).
 
 ```latex
-\documentclass[biblatex]{lni}
+\documentclass[biblatex,english]{lni}
 \bibliography{LNI-examples.bib}
 \begin{document}
 \title{Title}

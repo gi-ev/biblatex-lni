@@ -64,12 +64,20 @@ jobs:
           /bin/entrypoint work pdflatex LNI-test-de
           cp /work/out/*.pdf /tmp/result
 
-      - name: Build mwe
+      - name: Build mwe-de
         run: |
-          /bin/entrypoint work pdflatex mwe
-          /bin/entrypoint work biber mwe
-          /bin/entrypoint work pdflatex mwe
-          /bin/entrypoint work pdflatex mwe
+          /bin/entrypoint work pdflatex mwe-de
+          /bin/entrypoint work biber mwe-de
+          /bin/entrypoint work pdflatex mwe-de
+          /bin/entrypoint work pdflatex mwe-de
+          cp /work/out/*.pdf /tmp/result
+
+      - name: Build mwe-en
+        run: |
+          /bin/entrypoint work pdflatex mwe-en
+          /bin/entrypoint work biber mwe-en
+          /bin/entrypoint work pdflatex mwe-en
+          /bin/entrypoint work pdflatex mwe-en
           cp /work/out/*.pdf /tmp/result
 
       - name: Upload PDFs
