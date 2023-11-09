@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 The markdown syntax is inspired by the conventions proposed by [keepachangelog.com](https://keepachangelog.com/).
 
-## [Unreleased]
+## [v0.6] - 2023-11-09
 
 ### Changed
 
@@ -57,4 +57,5 @@ Initial release.
 [v0.3]: https://github.com/latextemplates/biblatex-lni/compare/v0.2...v0.3
 [v0.4]: https://github.com/latextemplates/biblatex-lni/compare/v0.3...v0.4
 [v0.5]: https://github.com/latextemplates/biblatex-lni/compare/v0.4...v0.5
-[Unreleased]: https://github.com/latextemplates/biblatex-lni/compare/v0.5...HEAD
+[v0.6]: https://github.com/latextemplates/biblatex-lni/compare/v0.5...v0.6
+[Unreleased]: https://github.com/latextemplates/biblatex-lni/compare/v0.6...HEAD

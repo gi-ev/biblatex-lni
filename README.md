@@ -25,7 +25,7 @@ Text~\cite{jabref}.
 \end{document}
 ```
 
-## Usage outside of LNI class
+## Usage outside LNI class
 
 This style has no specific requirements, thus you can just pass `style=LNI` as parameter to [biblatex].
 
