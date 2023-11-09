@@ -47,21 +47,21 @@ jobs:
       - name: Add x86_64-linuxmusl to PATH
         run: echo "/usr/local/texlive/2023/bin/x86_64-linuxmusl" >> $GITHUB_PATH
 
-      - name: Build LNI-test-en
+      - name: Build basic-test-en
         run: |
-          /bin/entrypoint work pdflatex LNI-test-en
-          /bin/entrypoint work biber LNI-test-en
-          /bin/entrypoint work pdflatex LNI-test-en
-          /bin/entrypoint work pdflatex LNI-test-en
+          /bin/entrypoint work pdflatex basic-test-en
+          /bin/entrypoint work biber basic-test-en
+          /bin/entrypoint work pdflatex basic-test-en
+          /bin/entrypoint work pdflatex basic-test-en
           mkdir /tmp/result
           cp /work/out/*.pdf /tmp/result
 
-      - name: Build LNI-test-de
+      - name: Build basic-test-de
         run: |
-          /bin/entrypoint work pdflatex LNI-test-de
-          /bin/entrypoint work biber LNI-test-de
-          /bin/entrypoint work pdflatex LNI-test-de
-          /bin/entrypoint work pdflatex LNI-test-de
+          /bin/entrypoint work pdflatex basic-test-de
+          /bin/entrypoint work biber basic-test-de
+          /bin/entrypoint work pdflatex basic-test-de
+          /bin/entrypoint work pdflatex basic-test-de
           cp /work/out/*.pdf /tmp/result
 
       - name: Build mwe-de

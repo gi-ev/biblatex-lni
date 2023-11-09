@@ -13,7 +13,7 @@ The markdown syntax is inspired by the conventions proposed by [keepachangelog.c
 ### Fixed
 
 * The font size of the bibliography is now `\small`. [#11](https://github.com/gi-ev/biblatex-lni/pull/11)
-* Heading of bibliography in German is "Literaturverzeichnis". [#12](https://github.com/gi-ev/biblatex-lni/pull/12)
+* Heading of references section in German documents is "Literaturverzeichnis". [#24](https://github.com/gi-ev/biblatex-lni/pull/24)
 * Date is showing the year only. [#13](https://github.com/gi-ev/biblatex-lni/pull/13)
 
 ## [v0.5] - 2019-02-03
