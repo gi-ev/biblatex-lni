@@ -86,6 +86,9 @@ jobs:
           name: PDFs
           path: '/tmp/result/*.pdf'
 
+      - name: Setup ctanify requirements
+        run: sudo apt-get install libfile-copy-recursive-perl
+
       - name: Prepare for CTAN
         run: ctanify −−pkgname=biblatex-lni --notds LNI.* mwe-*.tex LNI-test-*.tex *.lbx README.md CHANGELOG.md
 
