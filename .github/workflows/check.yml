@@ -47,6 +47,7 @@ jobs:
           biber basic-test-en
           pdflatex basic-test-en
           pdflatex basic-test-en
+          texlogsieve basic-test-en.log
 
       - name: Build basic-test-de
         run: |
@@ -54,6 +55,7 @@ jobs:
           biber basic-test-de
           pdflatex basic-test-de
           pdflatex basic-test-de
+          texlogsieve basic-test-de.log
 
       - name: Build mwe-de
         run: |
@@ -61,6 +63,7 @@ jobs:
           biber mwe-de
           pdflatex mwe-de
           pdflatex mwe-de
+          texlogsieve mwe-de.log
 
       - name: Build mwe-en
         run: |
@@ -68,12 +71,15 @@ jobs:
           biber mwe-en
           pdflatex mwe-en
           pdflatex mwe-en
+          texlogsieve mwe-en.log
 
       - name: Upload PDFs
         uses: actions/upload-artifact@v3
         with:
           name: PDFs
-          path: '*.pdf'
+          path: |
+            *.pdf
+            *.log
 
       - name: Prepare for CTAN
         run: |
