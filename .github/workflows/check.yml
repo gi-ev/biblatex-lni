@@ -86,6 +86,9 @@ jobs:
           name: PDFs
           path: '/tmp/result/*.pdf'
 
+      - name: Debug
+        run: apt-cache --quiet=0 --no-all-versions show libfile-copy-recursive-perl p
+
       - name: Setup ctanify requirements
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
