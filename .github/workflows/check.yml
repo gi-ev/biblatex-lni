@@ -81,6 +81,9 @@ jobs:
           packages: libfile-copy-recursive-perl
           version: 1.0
 
+      - name: debug
+        run: ctanify --version
+
       - name: Prepare for CTAN
         run: ctanify −p biblatex-lni --notds LNI.* mwe-*.tex LNI-test-*.tex *.lbx README.md CHANGELOG.md
 
