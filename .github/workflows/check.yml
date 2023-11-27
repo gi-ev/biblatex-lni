@@ -23,7 +23,7 @@ jobs:
         with:
           show-progress: 'false'
       - name: Lint CHANGELOG.md
-        uses: jbangdev/jbang-action@v0.110.1
+        uses: jbangdev/jbang-action@v0.113.0
         with:
           script: com.github.nbbrd.heylogs:heylogs-cli:0.7.1:bin
           scriptargs: "check CHANGELOG.md"
@@ -35,24 +35,25 @@ jobs:
         uses: actions/checkout@v4
         with:
           show-progress: 'false'
+
       - name: Install TeX Live
         uses: zauguin/install-texlive@v3
         with:
            package_file: Texlivefile
 
-      - name: Build LNI-test-en
+      - name: Build basic-test-en
         run: |
-          pdflatex LNI-test-en
-          biber LNI-test-en
-          pdflatex LNI-test-en
-          pdflatex LNI-test-en
+          pdflatex basic-test-en
+          biber basic-test-en
+          pdflatex basic-test-en
+          pdflatex basic-test-en
 
-      - name: Build LNI-test-de
+      - name: Build basic-test-de
         run: |
-          pdflatex LNI-test-de
-          biber LNI-test-de
-          pdflatex LNI-test-de
-          pdflatex LNI-test-de
+          pdflatex basic-test-de
+          biber basic-test-de
+          pdflatex basic-test-de
+          pdflatex basic-test-de
 
       - name: Build mwe-de
         run: |
