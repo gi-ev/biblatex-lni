@@ -29,71 +29,55 @@ jobs:
           scriptargs: "check CHANGELOG.md"
   build:
     runs-on: ubuntu-latest
-    container:
-      image: reitzig/texlive-base:2023.1
-      options: --user root
-      env:
-        SRC_DIR: /__w/biblatex-lni/biblatex-lni
 
     steps:
-      - name: Install dependencies
-        run: apk add git zip
-
       - name: Check out code
         uses: actions/checkout@v4
         with:
           show-progress: 'false'
-
-      - name: Add x86_64-linuxmusl to PATH
-        run: echo "/usr/local/texlive/2023/bin/x86_64-linuxmusl" >> $GITHUB_PATH
+      - name: Install TeX Live
+        uses: zauguin/install-texlive@v3
+        with:
+           package_file: Texlivefile
 
       - name: Build LNI-test-en
         run: |
-          /bin/entrypoint work pdflatex LNI-test-en
-          /bin/entrypoint work biber LNI-test-en
-          /bin/entrypoint work pdflatex LNI-test-en
-          /bin/entrypoint work pdflatex LNI-test-en
-          mkdir /tmp/result
-          cp /work/out/*.pdf /tmp/result
+          pdflatex LNI-test-en
+          biber LNI-test-en
+          pdflatex LNI-test-en
+          pdflatex LNI-test-en
 
       - name: Build LNI-test-de
         run: |
-          /bin/entrypoint work pdflatex LNI-test-de
-          /bin/entrypoint work biber LNI-test-de
-          /bin/entrypoint work pdflatex LNI-test-de
-          /bin/entrypoint work pdflatex LNI-test-de
-          cp /work/out/*.pdf /tmp/result
+          pdflatex LNI-test-de
+          biber LNI-test-de
+          pdflatex LNI-test-de
+          pdflatex LNI-test-de
 
       - name: Build mwe-de
         run: |
-          /bin/entrypoint work pdflatex mwe-de
-          /bin/entrypoint work biber mwe-de
-          /bin/entrypoint work pdflatex mwe-de
-          /bin/entrypoint work pdflatex mwe-de
-          cp /work/out/*.pdf /tmp/result
+          pdflatex mwe-de
+          biber mwe-de
+          pdflatex mwe-de
+          pdflatex mwe-de
 
       - name: Build mwe-en
         run: |
-          /bin/entrypoint work pdflatex mwe-en
-          /bin/entrypoint work biber mwe-en
-          /bin/entrypoint work pdflatex mwe-en
-          /bin/entrypoint work pdflatex mwe-en
-          cp /work/out/*.pdf /tmp/result
+          pdflatex mwe-en
+          biber mwe-en
+          pdflatex mwe-en
+          pdflatex mwe-en
 
       - name: Upload PDFs
         uses: actions/upload-artifact@v3
         with:
           name: PDFs
-          path: '/tmp/result/*.pdf'
-
-      - name: Debug
-        run: apt-cache --quiet=0 --no-all-versions show libfile-copy-recursive-perl p
+          path: '*.pdf'
 
       - name: Setup ctanify requirements
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
           packages: libfile-copy-recursive-perl
-          debug: true
           version: 1.0
 
       - name: Prepare for CTAN
