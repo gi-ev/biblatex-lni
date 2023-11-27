@@ -85,7 +85,7 @@ jobs:
         run: ctanify --version
 
       - name: Prepare for CTAN
-        run: ctanify −−pkgname=biblatex-lni --notds LNI.* LNI-*.* basic-test-*.tex mwe-*.tex README.md CHANGELOG.md
+        run: ctanify −−pkgname=biblatex-lni --notds LNI-english.lbx LNI-examples.bib LNI-ngerman.lbx LNI.bbx LNI.cbx README.md CHANGELOG.md basic-test-de.tex basic-test-en.tex mwe-de.tex mwe-en.tex
 
       - name: Upload CTAN build
         uses: actions/upload-artifact@v3
