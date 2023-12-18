@@ -74,7 +74,7 @@ jobs:
       - run: texlogsieve mwe-en.log
 
       - name: Upload PDFs
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: PDFs
           path: |
@@ -87,7 +87,7 @@ jobs:
           ./release.sh
 
       - name: Upload CTAN build
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: CTAN
           path: 'biblatex-lni.zip'
