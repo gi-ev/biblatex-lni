@@ -103,6 +103,11 @@ jobs:
            unzip biblatex-lni.zip
            pkgcheck -d /tmp/biblatex-lni
 
-      - name: keep alive
-        if: ${{ always() }}
-        uses: gautamkrishnar/keepalive-workflow@v2
+  keepalive:
+    name: Keepalive
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: gautamkrishnar/keepalive-workflow@v2
