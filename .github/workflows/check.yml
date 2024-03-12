@@ -100,13 +100,13 @@ jobs:
           path: 'biblatex-lni.zip'
       - name: pkgcheck
         run: |
-            set -e
-            wget https://gitlab.com/Lotz/pkgcheck/raw/master/bin/pkgcheck -q --output-document=/usr/local/bin/pkgcheck && chmod a+x /usr/local/bin/pkgcheck
-            mv biblatex-lni.zip /tmp
-            cd /tmp
-            unzip biblatex-lni.zip
-            pkgcheck -d /tmp/biblatex-lni
-  
+          set -e
+          wget https://gitlab.com/Lotz/pkgcheck/raw/master/bin/pkgcheck -q --output-document=/usr/local/bin/pkgcheck && chmod a+x /usr/local/bin/pkgcheck
+          mv biblatex-lni.zip /tmp
+          cd /tmp
+          unzip biblatex-lni.zip
+          pkgcheck -d /tmp/biblatex-lni
+
   keepalive:
     name: Keepalive
     runs-on: ubuntu-latest
