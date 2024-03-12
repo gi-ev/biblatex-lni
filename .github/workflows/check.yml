@@ -68,8 +68,10 @@ jobs:
       - run: pdflatex ${{ matrix.file }}
       - run: pdflatex ${{ matrix.file }}
       - run: texlogsieve ${{ matrix.file }}.log
+        if: always()
 
       - name: Upload PDF and log
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.file }}
