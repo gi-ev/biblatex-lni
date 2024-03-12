@@ -25,13 +25,31 @@ jobs:
       - name: Lint CHANGELOG.md
         uses: jbangdev/jbang-action@v0.115.0
         with:
-          script: com.github.nbbrd.heylogs:heylogs-cli:0.7.1:bin
+          script: com.github.nbbrd.heylogs:heylogs-cli:0.7.2:bin
           scriptargs: "check CHANGELOG.md"
+
+  cache:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+        with:
+          show-progress: 'false'
+
+      - name: Install TeX Live
+        uses: zauguin/install-texlive@v3
+        with:
+          package_file: Texlivefile
 
   build:
     runs-on: ubuntu-latest
+    needs: [cache]
     permissions:
       contents: write
+    strategy:
+      fail-fast: false
+      matrix:
+        file: ['basic-test-en', 'basic-test-de', 'mwe-en', 'mwe-de']
     steps:
       - name: Check out code
         uses: actions/checkout@v4
@@ -43,65 +61,47 @@ jobs:
         with:
            package_file: Texlivefile
 
-      - name: Build basic-test-en
-        run: |
-          pdflatex basic-test-en
-          biber basic-test-en
-          pdflatex basic-test-en
-          pdflatex basic-test-en
-      - run: texlogsieve basic-test-en.log
+      - run: pdflatex ${{ matrix.file }}
+      - run: biber ${{ matrix.file }}
+      - run: pdflatex ${{ matrix.file }}
+      - run: pdflatex ${{ matrix.file }}
+      - run: texlogsieve ${{ matrix.file }}.log
+        if: always()
 
-      - name: Build basic-test-de
-        run: |
-          pdflatex basic-test-de
-          biber basic-test-de
-          pdflatex basic-test-de
-          pdflatex basic-test-de
-      - run: texlogsieve basic-test-de.log
-
-      - name: Build mwe-de
-        run: |
-          pdflatex mwe-de
-          biber mwe-de
-          pdflatex mwe-de
-          pdflatex mwe-de
-      - run: texlogsieve mwe-de.log
-
-      - name: Build mwe-en
-        run: |
-          pdflatex mwe-en
-          biber mwe-en
-          pdflatex mwe-en
-          pdflatex mwe-en
-      - run: texlogsieve mwe-en.log
-
-      - name: Upload PDFs
+      - name: Upload PDF and log
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: PDFs
+          name: ${{ matrix.file }}
           path: |
+            *.bbl
             *.pdf
             *.log
 
+  ctan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+        with:
+          show-progress: 'false'
       - name: Prepare for CTAN
         run: |
           git config --global --add safe.directory /__w/biblatex-lni/biblatex-lni
           ./release.sh
-
       - name: Upload CTAN build
         uses: actions/upload-artifact@v4
         with:
           name: CTAN
           path: 'biblatex-lni.zip'
-
       - name: pkgcheck
         run: |
-           set -e
-           wget https://gitlab.com/Lotz/pkgcheck/raw/master/bin/pkgcheck -q --output-document=/usr/local/bin/pkgcheck && chmod a+x /usr/local/bin/pkgcheck
-           mv biblatex-lni.zip /tmp
-           cd /tmp
-           unzip biblatex-lni.zip
-           pkgcheck -d /tmp/biblatex-lni
+          set -e
+          wget https://gitlab.com/Lotz/pkgcheck/raw/master/bin/pkgcheck -q --output-document=/usr/local/bin/pkgcheck && chmod a+x /usr/local/bin/pkgcheck
+          mv biblatex-lni.zip /tmp
+          cd /tmp
+          unzip biblatex-lni.zip
+          pkgcheck -d /tmp/biblatex-lni
 
   keepalive:
     name: Keepalive
