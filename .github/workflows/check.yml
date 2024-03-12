@@ -62,7 +62,7 @@ jobs:
            package_file: Texlivefile
 
       - run: updmap -sys
-      - run: initexmf --mkmaps
+      - run: mktexlsr
 
       - run: pdflatex ${{ matrix.file }}
       - run: biber ${{ matrix.file }}
