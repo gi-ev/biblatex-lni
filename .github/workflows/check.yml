@@ -25,7 +25,7 @@ jobs:
       - name: Lint CHANGELOG.md
         uses: jbangdev/jbang-action@v0.115.0
         with:
-          script: com.github.nbbrd.heylogs:heylogs-cli:0.7.1:bin
+          script: com.github.nbbrd.heylogs:heylogs-cli:0.7.2:bin
           scriptargs: "check CHANGELOG.md"
 
   cache:
@@ -61,7 +61,7 @@ jobs:
         with:
            package_file: Texlivefile
 
-      - run: updmap
+      - run: sudo updmap -sys
 
       - run: pdflatex ${{ matrix.file }}
       - run: biber ${{ matrix.file }}
