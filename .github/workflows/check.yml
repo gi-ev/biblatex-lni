@@ -11,7 +11,6 @@ on:
     inputs:
       cache_version:
         description: 'Cache version for install-texlive'
-        required: true
         default: '0'
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
