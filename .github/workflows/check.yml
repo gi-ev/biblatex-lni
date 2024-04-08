@@ -8,11 +8,7 @@ on:
   schedule:
     - cron: '1 2 5 * *'
   workflow_dispatch:
-    inputs:
-      cache_version:
-        description: 'Cache version for install-texlive'
-        default: '0'
-        required: false
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
@@ -44,7 +40,6 @@ jobs:
         uses: zauguin/install-texlive@v3
         with:
           package_file: Texlivefile
-          cache_version: ${{ github.event.inputs.cache_version }}
 
   build:
     runs-on: ubuntu-latest
@@ -65,7 +60,6 @@ jobs:
         uses: zauguin/install-texlive@v3
         with:
            package_file: Texlivefile
-           cache_version: ${{ github.event.inputs.cache_version }}
 
       - run: pdflatex ${{ matrix.file }}
       - run: biber ${{ matrix.file }}
