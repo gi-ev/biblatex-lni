@@ -12,6 +12,7 @@ on:
       cache_version:
         description: 'Cache version for install-texlive'
         default: '0'
+        required: false
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
