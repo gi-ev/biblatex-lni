@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 The markdown syntax is inspired by the conventions proposed by [keepachangelog.com](https://keepachangelog.com/).
 
+## [v0.7] - 2025-01-23
+
+### Changed
+
+* Change `maxcitenames` and `maxbibnames` to 3
+* Change bibstring `urlseen` to `visited on\addspace`
+
 ## [v0.6] - 2023-11-09
 
 ### Changed
