@@ -38,12 +38,12 @@
   sortcites     = true,
   giveninits    = true,
   useprefix     = true,
-  maxbibnames   = 99,
-  maxcitenames  = 2,
+  maxbibnames   = 3,
+  maxcitenames  = 3,
   eprint        = true,
   url           = true,
-  doi           = true,
-  isbn          = true,
+  doi           = false,
+  isbn          = false,
   backref       = false,
   date          = year,
 }
@@ -400,6 +400,16 @@
 \DeclareFieldFormat*{booktitle}{#1}
 \DeclareFieldFormat*{journaltitle}{#1}
 \DeclareFieldFormat*{title}{#1}
+
+\DeclareFieldFormat{doi}{%
+  DOI\addcolon\space
+  \ifhyperref
+    {\href{https://doi.org/#1}{\nolinkurl{#1}}}
+    {\nolinkurl{#1}}}
+\DeclareFieldFormat{isbn}{ISBN\addcolon\space #1}
+\DeclareFieldFormat{isrn}{ISRN\addcolon\space #1}
+\DeclareFieldFormat{issn}{ISSN\addcolon\space #1}
 \DeclareFieldFormat{urldate}{\addcomma\addspace \bibstring{urlseen}\addcolon\addspace#1}
+\DeclareFieldFormat{url}{\url{#1}}
 \endinput
 %% End of file `LNI.bbx'.
