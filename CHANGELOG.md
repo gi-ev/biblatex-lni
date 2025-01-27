@@ -62,11 +62,11 @@ The markdown syntax is inspired by the conventions proposed by [keepachangelog.c
 Initial release.
 
 [v0.1]: https://github.com/gi-ev/biblatex-lni/tree/v0.1
-[v0.2]: https://github.com/latextemplates/biblatex-lni/compare/v0.1...v0.2
-[v0.3]: https://github.com/latextemplates/biblatex-lni/compare/v0.2...v0.3
-[v0.4]: https://github.com/latextemplates/biblatex-lni/compare/v0.3...v0.4
-[v0.5]: https://github.com/latextemplates/biblatex-lni/compare/v0.4...v0.5
-[v0.6]: https://github.com/latextemplates/biblatex-lni/compare/v0.5...v0.6
-[v0.7]: https://github.com/latextemplates/biblatex-lni/compare/v0.6...v0.7
+[v0.2]: https://github.com/gi-ev/biblatex-lni/compare/v0.1...v0.2
+[v0.3]: https://github.com/gi-ev/biblatex-lni/compare/v0.2...v0.3
+[v0.4]: https://github.com/gi-ev/biblatex-lni/compare/v0.3...v0.4
+[v0.5]: https://github.com/gi-ev/biblatex-lni/compare/v0.4...v0.5
+[v0.6]: https://github.com/gi-ev/biblatex-lni/compare/v0.5...v0.6
+[v0.7]: https://github.com/gi-ev/biblatex-lni/compare/v0.6...v0.7
 
 <!-- markdownlint-disable-file MD013 MD024 CHANGELOG-RULE-003 -->
