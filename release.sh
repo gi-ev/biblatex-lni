@@ -5,6 +5,7 @@
 git archive -o biblatex-lni.zip --prefix=biblatex-lni/ HEAD
 
 # Delete ".gitignore", ".gitattributes", and "release.sh". These files are not wanted by CTAN
+
 # In the future, other files starting with "." might be added, therefore we delete all files starting with "."
 zip biblatex-lni.zip -d /biblatex-lni/\.*
 
