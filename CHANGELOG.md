@@ -8,7 +8,7 @@ The markdown syntax is inspired by the conventions proposed by [keepachangelog.c
 ### Changed
 
 * Change `maxcitenames` and `maxbibnames` to 3
-* Change bibstring `urlseen` to `visited on\addspace`
+* Change bibstring `urlseen` to `accessed\addcolon`
 * Suppress ISBN and doi
 * Remove `URL` output
 
