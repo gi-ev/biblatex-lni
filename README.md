@@ -51,11 +51,6 @@ This site also allows for filing issues in case something strange is encountered
 
 ## License
 
-Copyright (c) 2016-2025 Lukas C. Bossert, Georg Duffner, Oliver Kopp
-
-This work has the LPPL maintenance status _maintained_.
-The current maintainer of this work is Oliver Kopp.
-
 This package may be distributed under the terms of the LaTeX Project
 Public License, as described in lppl.txt in the base LaTeX distribution.
 Either version 1.3 or, at your option, any later version.
