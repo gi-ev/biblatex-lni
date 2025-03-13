@@ -37,7 +37,7 @@ jobs:
           show-progress: 'false'
 
       - name: Install TeX Live
-        uses: zauguin/install-texlive@v3
+        uses: zauguin/install-texlive@v4
         with:
           package_file: Texlivefile
 
@@ -57,7 +57,7 @@ jobs:
           show-progress: 'false'
 
       - name: Install TeX Live
-        uses: zauguin/install-texlive@v3
+        uses: zauguin/install-texlive@v4
         with:
            package_file: Texlivefile
 
