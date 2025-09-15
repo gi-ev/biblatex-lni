@@ -23,7 +23,7 @@ jobs:
         with:
           show-progress: 'false'
       - name: Lint CHANGELOG.md
-        uses: jbangdev/jbang-action@v0.129.0
+        uses: jbangdev/jbang-action@v0.130.0
         with:
           script: com.github.nbbrd.heylogs:heylogs-cli:0.7.2:bin
           scriptargs: "check CHANGELOG.md"
