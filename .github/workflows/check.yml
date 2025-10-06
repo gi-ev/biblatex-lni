@@ -97,7 +97,7 @@ jobs:
       - name: pkgcheck
         run: |
           set -e
-          wget https://codeberg.org/ManfredLotz/pkgcheck/raw/branch/master/bin/pkgcheck -q --output-document=/usr/local/bin/pkgcheck && chmod a+x /usr/local/bin/pkgcheck
+          wget https://codeberg.org/ManfredLotz/pkgcheck/releases/download/v3.3.0_2025-06-01/pkgcheck-x86_64-unknown-linux-musl -q --output-document=/usr/local/bin/pkgcheck && chmod a+x /usr/local/bin/pkgcheck
           mv biblatex-lni.zip /tmp
           cd /tmp
           unzip biblatex-lni.zip
