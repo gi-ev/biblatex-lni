@@ -70,7 +70,7 @@ jobs:
 
       - name: Upload PDF and log
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: ${{ matrix.file }}
           path: |
@@ -90,7 +90,7 @@ jobs:
           git config --global --add safe.directory /__w/biblatex-lni/biblatex-lni
           ./release.sh
       - name: Upload CTAN build
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: CTAN
           path: 'biblatex-lni.zip'
