@@ -397,6 +397,48 @@
   \usebibmacro{finentry}}
 
 
+
+% Suppress a URL if it is just a DOI resolver URL for the DOI field.
+% This avoids printing the same online identifier twice for entries like
+%   doi = {10.1000/example},
+%   url = {https://doi.org/10.1000/example},
+%   url = {http://doi.org/10.1000/example}, or
+%   url = {http://dx.doi.org/10.1000/example},
+% while preserving all other URLs.
+\newbibmacro*{LNI:url+urldate}{%
+  \ifboolexpr{
+    test {\iffieldundef{doi}}
+    or
+    test {\iffieldundef{url}}
+  }
+    {\usebibmacro{url+urldate}}
+    {%
+      \edef\LNI@urlraw{\csuse{abx@field@urlraw}}%
+      \edef\LNI@doiurlhttps{https://doi.org/\thefield{doi}}%
+      \edef\LNI@doiurlhttp{http://doi.org/\thefield{doi}}%
+      \edef\LNI@dxdoiurlhttp{http://dx.doi.org/\thefield{doi}}%
+      \ifdefstrequal{\LNI@urlraw}{\LNI@doiurlhttps}
+        {}
+        {\ifdefstrequal{\LNI@urlraw}{\LNI@doiurlhttp}
+          {}
+          {\ifdefstrequal{\LNI@urlraw}{\LNI@dxdoiurlhttp}
+            {}
+            {\usebibmacro{url+urldate}}}}%
+    }}
+
+\renewbibmacro*{doi+eprint+url}{%
+  \iftoggle{bbx:doi}
+    {\printfield{doi}}
+    {}%
+  \newunit\newblock
+  \iftoggle{bbx:eprint}
+    {\usebibmacro{eprint}}
+    {}%
+  \newunit\newblock
+  \iftoggle{bbx:url}
+    {\usebibmacro{LNI:url+urldate}}
+    {}}
+
 % Remove all emphasis and enquoting
 \DeclareFieldFormat*{booktitle}{#1}
 \DeclareFieldFormat*{journaltitle}{#1}
