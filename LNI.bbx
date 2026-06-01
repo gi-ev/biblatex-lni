@@ -49,6 +49,24 @@
   date          = year,
 }
 
+% Normalize DOI fields that accidentally contain a DOI resolver URL.
+% This makes
+%   doi = {https://doi.org/10.1000/example},
+%   doi = {http://doi.org/10.1000/example},
+%   doi = {https://dx.doi.org/10.1000/example}, or
+%   doi = {http://dx.doi.org/10.1000/example}
+% behave like
+%   doi = {10.1000/example}.
+\DeclareSourcemap{%
+  \maps[datatype=bibtex]{%
+    \map{%
+      \step[fieldsource=doi,%
+            match=\regexp{^https?://(?:dx\.)?doi\.org/(.+)$},%
+            replace={$1}]%
+    }%
+  }%
+}
+
 \renewcommand*{\bibfont}{\small} % font size 9pt required by LNI template
 
 \DeclareRedundantLanguages{ngerman}{german,ngerman,austrian,naustrian}
